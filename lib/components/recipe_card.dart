@@ -16,7 +16,7 @@ class RecipeCard extends StatelessWidget {
     final double top = active! ? 0 : 46;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOutQuint,
+      curve: Curves.easeOutQuint,
       margin: EdgeInsets.only(
         top: top,
         bottom: 0,
@@ -64,8 +64,10 @@ class RecipeCard extends StatelessWidget {
                 right: 16,
                 top: 10,
               ),
+              height: 87,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                color: recipe!.startColor,
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(32),
                   bottomRight: Radius.circular(32),
                 ),
@@ -74,7 +76,7 @@ class RecipeCard extends StatelessWidget {
                 recipe!.recipeName,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
@@ -87,8 +89,9 @@ class RecipeCard extends StatelessWidget {
             left: 0,
             right: 0,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(
@@ -111,6 +114,9 @@ class RecipeCard extends StatelessWidget {
                   Row(
                     children: [
                       SvgPicture.asset('assets/svg/icon-share.svg'),
+                      const SizedBox(
+                        width: 8.65,
+                      ),
                       SvgPicture.asset('assets/svg/icon-bookmark.svg'),
                     ],
                   )
